@@ -1,0 +1,41 @@
+<mat-card class="card">
+  <mat-card-content>
+    <div mat-dialog-title>
+      <h1>Login</h1>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div mat-dialog-content class="content">
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" formControlName="username" />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Enter your password</mat-label>
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              placeholder="Password"
+              formControlName="password"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+
+        <div mat-dialog-actions class="action">
+          <button mat-raised-button color="primary" type="submit">Login</button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
